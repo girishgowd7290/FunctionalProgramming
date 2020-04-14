@@ -1,0 +1,50 @@
+Important Functions::
+
+collect(Collectors.toList())
+
+Comparator.naturalOrder()
+Comparator.reverseOrder()
+Comparator.comparing(lambda)
+
+
+Predicate 
+Function
+Consumer
+
+Supplier -  Returns a value
+Supplier<T> obj = T::new;
+
+BiPredicate - Takes 2 arguments and returns the boolean
+BiFunction - Takes 2 arguments and returns a value
+BiConsumer - Takes 2 arguments and returns void
+
+BinaryOperator - used for the binary function of two values
+IntBinaryOperator - Takes 2 int input params and returns a int value
+
+
+IntPredicate - To validate a single int value
+IntFunction - Accepts a Int valued args n returns the result
+IntConsumer - Aceepts the Int valued args to perform operation
+
+IntSupplier - Returns a Int value
+
+IntToDoubleFunction - Accepts Int and returns double
+IntToLongFunction - Accepts Int and returns Long
+
+IntUnaryOperator - accepts an Int and returns Int
+
+IntStream.range() - Returns a sequential ordered IntStream from startInclusive (inclusive) to endExclusive (exclusive) by an incremental step of 1.
+IntStream.rangeClosed() - Returns a sequential ordered IntStream from startInclusive (inclusive) to endInclusive (inclusive) by an incremental step of 1.
+
+IntStream.iterate(int seed, IntUnaryOperator f) - Returns a sequential ordered IntStream + boxed()
+
+
+
+parallel() - to process things in parallel
+replaceAll() - to operate on list elements
+
+
+File Operations :
+Files.list(Paths.get(location)).forEach() - list all the files
+Files.lines(Paths.get(location)).forEach() - print every line
+
