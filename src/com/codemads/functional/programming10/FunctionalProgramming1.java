@@ -16,6 +16,16 @@ import java.util.stream.Collectors;
  * 
  * Will try to combine all the features available with Streams in one place 
  * 
+ * 1. Streams
+ * 2. Filter
+ * 3. Map
+ * 4. reduce
+ * 5. distinct
+ * 6. sorted - reverse order, Comparator.comparing(exp)
+ * 7. collect
+ * 8. Predicate(Objet, Boolean), MapperFunctions(InObject,OutObject), Consumer(Object, Void)
+ * 9. Behavioural approach
+ * 
  * @author girishgowda
  *
  */
@@ -37,9 +47,6 @@ public class FunctionalProgramming1 {
 		// Behaviourial Approach - passing the behaviour as parameter
 		behavioralApproach();
 		
-		
-		
-
 	}
 
 	/**
@@ -88,17 +95,27 @@ public class FunctionalProgramming1 {
 		// With Predicates, Functions  & Consumer
 		System.out.println("With Predicates, Consumer & Functions to define Lambda::");
 		
-		// Predicates test method is overriden
+		
+		/*
+		 * Predicates test method is overriden 
+		 */
 		// Accepts a single param and returns boolean value
 		Predicate<String> predicate1 = names -> names.length()>2;
 		
-		//Functions Apply method is overridden
-		// <Input param, Output param> Acceppts a param n returns a value
-		Function<String,String> mapper1 = name -> "Hello "+ name;
 		
-		// Consumers accept method is overidden
+		/*
+		 * Functions Apply method is overridden
+		 */
+		// <Input param, Output param> Accepts a param n returns a value
+		Function<String, String> mapper1 = name -> "Hello "+ name;
+		
+		
+		/*
+		 * Consumers accept method is overidden 
+		 */
 		// <param> accepts a param n returns void
 		Consumer<String> action1 = System.out::println;
+		
 		
 		// apply predicate, function & Consumer
 		friends

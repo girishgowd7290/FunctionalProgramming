@@ -21,18 +21,41 @@ import com.codemads.functional.programming4.Couples;
 import com.codemads.functional.programming4.FP04FunctionalInterfaces;
 
 
+/**
+ * FunctionalProgramming contains the overall summary of the Lambdas and Streams usage
+ * 
+ * @author girishgowda
+ *
+ */
 
 public class FunctionalProgramming2 {
-
-	/**
-	 * @param args
+	
+	/*
+	 * FunctionalProgramming2 contains 
+	 * 
+	 * 1. Supplier - No Args but returns a value
+	 * 2. UnaryOperator - Takes only one arguement; return type is same as arguement
+	 * 3. BiPredicate - Takes two input params n returns a boolean value
+	 * 4. BiFucntion - Takes two input params n returns a  value
+	 * 5. BiConsumer - Takes two input params n returns nothing
+	 * 6. IntBinaryOperator - Takes 2 Integer params n return the Integer type
+	 * 7. IntConsumer - Consumes a Integer type param and performs operation. Doesn return anything
+	 * 8. IntFunction - Takes Integer as param always and returns the data type value defined
+	 * 9. IntPredicate - Takes Integer as param and returns Boolean value
+	 * 10. IntSupplier - No Input args but returns a Integer value
+	 * 11. IntToDoubleFunction function - Takes Integer as input param and returns Double value
+	 * 12. IntToLongFunction function - Takes Integer as input param and returns Long value
+	 * 13. Int Unary Operator - Takes Integer as only  param and returns the Integer value
+	 * 14. To create a new Object - Supplier<Object> object = Object::new;
+	 * 
 	 */
 	public static void main(String[] args) {
+		
 		List<String> courses = List.of("Spring", "Spring Boot", "API" , "Microservices", "AWS", "PCF","Azure", "Docker", "Kubernetes", "Ruby");
 
-
-		// Supplier
-		// Zero args but returns a value of <T>
+		/*
+		 * Supplier - Zero args but returns a value of <T>
+		 */
 		Supplier<Integer> randomInteger = () -> {
 			Random random = new Random();
 			return random.nextInt(10);
@@ -67,18 +90,18 @@ public class FunctionalProgramming2 {
 
 
 		// BiPredicate
-		// Takes two params n returns a boolena
+		// BiPredicate - Takes two input params n returns a boolean value
 		BiPredicate<Integer, Integer> biPredicate = (x,y) -> x>y;
 		System.out.println("BiPredicate :: " +biPredicate.test(10, 15));
 
 
-		// BiFucntion
+		// BiFucntion - Takes two input params n returns a  value
 		// <Input, Input, Output>
 		BiFunction<String, String, String> biFunction = (boy,girl) -> "Hello " + boy + girl;
 		System.out.println("Bi Function :: " + biFunction.apply("Giri ", "Sumu"));
 
 
-		//BiConsumer
+		//BiConsumer - Takes two input params n returns nothing
 		// Takes 2 params n returns void
 		BiConsumer<String, String> biConsumer  = (boy,girl) -> System.out.println("BiConsumer :: Hello "+ boy+girl);
 		biConsumer.accept("Giri", "Sumu");
@@ -94,52 +117,46 @@ public class FunctionalProgramming2 {
 		};
 
 
-		//IntBinaryOperator takes 2 params n return the same arg typw
+		//IntBinaryOperator - Takes 2 Integer params n return the Integer type
 		IntBinaryOperator intBinOpr2 = (x, y) -> x+y;
 		System.out.println("INT Binary Operator : " + intBinOpr.applyAsInt(5, 6));
 		System.out.println("INT Binary Operator : " + intBinOpr2.applyAsInt(5, 6));
 
-		//IntConsumer 
+		//IntConsumer - Consumes a Integer type param and performs operation. Doesn return anything
 		// takes Integer as a param to Print
 		IntConsumer intConsumer = System.out::println;
 		intConsumer.accept(4);
 
-		//IntFunction
+		//IntFunction - Takes Integer as param always and returns the data type value defined
 		// takes int params n return the result
 		IntFunction<String> intFunc = x -> x+ " times I love you";
 		System.out.println("Int Function ::" +intFunc.apply(5));
 
-		// IntPredicate
+		// IntPredicate - Takes Integer as param and returns Boolean value
 		IntPredicate intPredicate = x -> x>10;
 		System.out.println("Given value is greater than 10.? :" + intPredicate.test(5));
 
-		//IntSupplier
+		//IntSupplier - No Input args but returns a Integer value
 		IntSupplier intSupplier = () -> 10;
 		System.out.println("IntSupplier : "+intSupplier.getAsInt());
 
-		//IntToDouble function
+		//IntToDoubleFunction function - Takes Integer as input param and returns Double value
 		IntToDoubleFunction intToDoubleFunction = x -> x;
 		System.out.println("IntToDoubleFunction :: "+ intToDoubleFunction.applyAsDouble(5));
 
-		//Int to Long Function
+		//IntToLongFunction function - Takes Integer as input param and returns Long value
 		IntToLongFunction intToLongFunction = x -> x * 56735483;
 		System.out.println("IntToLongFunction :: " + intToLongFunction.applyAsLong(6));
 
-		//Int Unary Operator
+		//Int Unary Operator - Takes Integer as only  param and returns the Integer value
 		IntUnaryOperator intUnaryOperator = x -> x*x;
 		System.out.println("IntUnaryOperator :: "+ intUnaryOperator.applyAsInt(5));
 
-		courses.stream()
-		.map(str -> FP04FunctionalInterfaces.formatInput(str))
-		.forEach(System.out::println);
 
+		// To create a new Object - Supplier<Object> object = Object::new;
 		Supplier<Couples> coupleObject = Couples::new;
 		coupleObject.get().getBoy();
 
-	}
-
-	public static String formatInput(String name) {
-		return "Hello " + name;
 	}
 
 

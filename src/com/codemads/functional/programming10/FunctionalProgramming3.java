@@ -10,12 +10,32 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 
+/**
+ * 
+ * FunctionalProgramming3 Contains
+ * 1. IntStreams	
+ * 		- range(int, int)
+ * 		- rangeClosed(int, int)
+ * 		- iterate(1, exp).limit(int);
+ * 		- iterate(1, exp).limit(int).boxed().collect(Collectors.toList()))
+ * 2. Parallel() 
+ * 3. Operating on List elements - Immutability concept
+ * 4. File Operatios
+ * 		- Print all lines (	Files.lines(Paths.get("filename")).forEach(System.out::println);)
+ * 		- Read all files from a Directory
+ * 		- Check isDirectory
+ * 
+ * 
+ * @author girishgowda
+ *
+ */
+		
 public class FunctionalProgramming3 {
 
 	public static void main(String[] args) throws IOException {
 
 		/**
-		 * Streams
+		 * IntStreams 
 		 */
 		// Primitive Streams
 		System.out.println("Range :: " +IntStream.range(1, 10));
@@ -30,7 +50,9 @@ public class FunctionalProgramming3 {
 		.collect(Collectors.toList()));
 
 
-		// Use of Big INteger
+		/*
+		 * Big Integer usage
+		 */
 		System.out.println("Long Stream ::: " +
 				IntStream.rangeClosed(1, 25)
 		.reduce(1, (x,y) -> x*y));
@@ -53,7 +75,7 @@ public class FunctionalProgramming3 {
 		 * Immutability
 		 */
 		List<String> courses = List.of("Spring", "Spring Boot", "API" , "Microservices", "AWS", "PCF","Azure", "Docker", "Kubernetes", "Ruby");
-		//courses.replaceAll(str -> str.toUpperCase()); // Throws unsuppoted exception due to immutability
+		//courses.replaceAll(str -> str.toUpperCase()); // Throws unsupported exception due to immutability
 
 		// Change to uppercase for all lsit elements
 		List<String> coursesCopy = new ArrayList<String>(courses); 
