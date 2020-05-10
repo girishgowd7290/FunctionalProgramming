@@ -18,7 +18,6 @@ import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
 import com.codemads.functional.programming4.Couples;
-import com.codemads.functional.programming4.FP04FunctionalInterfaces;
 
 
 /**
